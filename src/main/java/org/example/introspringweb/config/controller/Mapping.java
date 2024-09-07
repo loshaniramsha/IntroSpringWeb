@@ -1,5 +1,6 @@
 package org.example.introspringweb.config.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -65,5 +66,11 @@ public class Mapping {
     public String HelloMapping7(@RequestHeader ("X-city") String myCity,@RequestHeader ("X-country") String myCounty,@RequestHeader ("Content-Type") String myContentType){
 
         return "My City is"+" " + myCity + " " + "my Country is"+" " + myCounty +" " + "my Content Type is"+" " + myContentType;
+    }
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String HelloMapping8(){
+        return "jason type handle";
+
     }
 }
