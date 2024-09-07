@@ -49,9 +49,21 @@ public class Mapping {
         return "My name is " + Myname + " and my age is " + Mage;
 
     }
+
     @PostMapping(params = {"name","age","school"})
     public String HelloMapping5(@RequestParam("name") String Myname, @RequestParam("age") int Mage,@RequestParam("school") String Myschool){
         return "My name is " + Myname + " and my age is " + Mage + " and my school is " + Myschool;
 
+    }
+    @PostMapping(headers = "X-city")
+    public String HelloMapping6(@RequestHeader ("X-city") String myCustomHeader){
+
+        return "My City is"+" " + myCustomHeader;
+    }
+
+    @PostMapping(headers = {"X-city","X-country","Content-Type"})
+    public String HelloMapping7(@RequestHeader ("X-city") String myCity,@RequestHeader ("X-country") String myCounty,@RequestHeader ("Content-Type") String myContentType){
+
+        return "My City is"+" " + myCity + " " + "my Country is"+" " + myCounty +" " + "my Content Type is"+" " + myContentType;
     }
 }
