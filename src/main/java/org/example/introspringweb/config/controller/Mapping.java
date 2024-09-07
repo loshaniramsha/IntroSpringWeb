@@ -44,4 +44,9 @@ public class Mapping {
 
     }
 
+    @PostMapping(params = {"name","age"})
+    public String HelloMapping5(@RequestParam("name") String Myname, @RequestParam("age") int Mage){
+        return "My name is " + Myname + " and my age is " + Mage;
+
+    }
 }
